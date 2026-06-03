@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/lucy.parkinson/Downloads/portfolio%20(3).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucy-Jasmine Parkinson — Data Portfolio</title>
+<link href="./Lucy-Jasmine Parkinson — Data Portfolio_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C9748A;
+    --rose-light: #E8A5B5;
+    --blush: #F5E0E6;
+    --lavender: #9B8FBF;
+    --lavender-light: #C4BEDD;
+    --sage: #8FAF9A;
+    --cream: #FDF8F5;
+    --warm-dark: #2E1F2F;
+    --mid: #6B5B6E;
+    --light-mid: #A896AC;
+    --petal: #FAF0F3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--warm-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+  }
+
+  /* ── DECORATIVE BLOBS ── */
+  .blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob-1 { width: 500px; height: 500px; background: var(--rose); top: -100px; right: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: var(--lavender); bottom: 10%; left: -120px; }
+  .blob-3 { width: 300px; height: 300px; background: var(--sage); top: 50%; right: 5%; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--warm-dark);
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--light-mid);
+    margin-top: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.35s;
+  }
+
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.45s;
+  }
+
+  .header-links a {
+    font-size: 0.78rem;
+    color: var(--lavender);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .header-links a:hover { color: var(--rose); }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--rose-light), var(--lavender-light), transparent);
+    margin: 2rem 0 3rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.5s;
+  }
+
+  /* ── ABOUT ── */
+  .about-strip {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    margin-bottom: 4rem;
+    border: 1px solid var(--blush);
+    box-shadow: 0 4px 40px rgba(201,116,138,0.07);
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.55s;
+  }
+
+  .about-strip p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 680px;
+  }
+
+  .stack-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .pill {
+    background: var(--petal);
+    border: 1px solid var(--blush);
+    color: var(--rose);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .pill.lavender { background: #F0EDF8; border-color: var(--lavender-light); color: var(--lavender); }
+  .pill.sage { background: #EDF4F0; border-color: #B8D4C2; color: var(--sage); }
+
+  /* ── SECTION TITLES ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .section-label span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blush), transparent);
+  }
+
+  /* ── PROJECT CARDS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 18px;
+    padding: 2rem;
+    border: 1px solid var(--blush);
+    box-shadow: 0 2px 20px rgba(201,116,138,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-light), var(--lavender-light));
+    border-radius: 18px 18px 0 0;
+  }
+
+  .card.lavender-card::before { background: linear-gradient(90deg, var(--lavender-light), #C4E0D2); }
+  .card.sage-card::before { background: linear-gradient(90deg, #C4E0D2, var(--lavender-light)); }
+  .card.rose-card::before { background: linear-gradient(90deg, var(--rose-light), #F5C3A5); }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(201,116,138,0.13);
+  }
+
+  .card-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .card.lavender-card .card-tag { color: var(--lavender); }
+  .card.sage-card .card-tag { color: var(--sage); }
+  .card.rose-card .card-tag { color: #C47B5A; }
+
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--warm-dark);
+    margin-bottom: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 1.2rem;
+  }
+
+  .card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    background: var(--petal);
+    color: var(--mid);
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    letter-spacing: 0.04em;
+  }
+  .card.lavender-card .tech-tag { background: #F0EDF8; }
+  .card.sage-card .tech-tag { background: #EDF4F0; }
+  .card.rose-card .tech-tag { background: #FDF1EC; }
+
+  /* ── FULL WIDTH CARD ── */
+  .card-wide {
+    grid-column: 1 / -1;
+  }
+
+  .card-wide .card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* ── SKILLS SECTION ── */
+  .skills-section {
+    margin-bottom: 5rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .skill-block {
+    background: white;
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid var(--blush);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .skill-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--rose);
+    margin-bottom: 0.8rem;
+  }
+  .skill-block:nth-child(2) .skill-block-title { color: var(--lavender); }
+  .skill-block:nth-child(3) .skill-block-title { color: var(--sage); }
+  .skill-block:nth-child(4) .skill-block-title { color: #C47B5A; }
+  .skill-block:nth-child(5) .skill-block-title { color: var(--rose); }
+  .skill-block:nth-child(6) .skill-block-title { color: var(--lavender); }
+
+  .skill-block ul {
+    list-style: none;
+  }
+  .skill-block ul li {
+    font-size: 0.8rem;
+    color: var(--mid);
+    padding: 0.2rem 0;
+    border-bottom: 1px solid var(--petal);
+    line-height: 1.5;
+  }
+  .skill-block ul li:last-child { border-bottom: none; }
+
+  /* ── JOURNEY TIMELINE ── */
+  .journey-section {
+    margin-bottom: 5rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--rose-light), var(--lavender-light), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2rem 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.35rem;
+    top: 0.45rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--rose-light);
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px var(--rose-light);
+  }
+  .timeline-item:nth-child(even)::before { background: var(--lavender-light); box-shadow: 0 0 0 1px var(--lavender-light); }
+
+  .tl-date {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--light-mid);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .tl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm-dark);
+    margin-bottom: 0.3rem;
+  }
+  .tl-desc {
+    font-size: 0.83rem;
+    color: var(--mid);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--blush);
+    padding: 3rem 0;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--light-mid);
+  }
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  footer a {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--lavender); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  /* staggered card delays */
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  .card:nth-child(5) { animation-delay: 0.5s; }
+
+  .skill-block:nth-child(1) { animation-delay: 0.1s; }
+  .skill-block:nth-child(2) { animation-delay: 0.2s; }
+  .skill-block:nth-child(3) { animation-delay: 0.3s; }
+  .skill-block:nth-child(4) { animation-delay: 0.4s; }
+  .skill-block:nth-child(5) { animation-delay: 0.5s; }
+  .skill-block:nth-child(6) { animation-delay: 0.6s; }
+
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .header-inner { grid-template-columns: 1fr; }
+    .header-links { align-items: flex-start; }
+    .card-wide .card-inner { grid-template-columns: 1fr; }
+    .about-strip { padding: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Data Portfolio</p>
+        <h1>Lucy-Jasmine<br><em>Parkinson</em></h1>
+        <p class="tagline">From raw data to real decisions — end to end.</p>
+      </div>
+      <div class="header-links">
+        <a href="mailto:ljparkinson51@gmail.com">ljparkinson51@gmail.com</a>
+        <a href="https://linkedin.com/in/lucy-jasmine-parkinson">LinkedIn ↗</a>
+        <a href="https://github.com/lucyparkinson">GitHub ↗</a>
+        <a href="file:///C:/Users/lucy.parkinson/Downloads/portfolio%20(3).html#">Download CV ↓</a>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- ABOUT -->
+  <div class="about-strip">
+    <p>Data professional with nearly 5 years of experience at Barons Eden Hotel &amp; Spa — growing from Administrator to architecting the company's first data warehouse in Microsoft Fabric, covering 4 properties and ingesting everything from live APIs and open datasets like weather, to booking systems, HR platforms, and manual spreadsheets. Power BI dashboards used by every manager and above across the business. Currently Quality &amp; People BI Analyst at Hiddenwell Destination Spa Hotels — sole owner of data quality at ingestion across the entire organisation, alongside People &amp; HR analytics.</p>
+    <div class="stack-pills">
+      <span class="pill">Microsoft Fabric</span>
+      <span class="pill">Power BI</span>
+      <span class="pill">SQL · T-SQL</span>
+      <span class="pill">Python</span>
+      <span class="pill">DAX</span>
+      <span class="pill lavender">REST APIs</span>
+      <span class="pill lavender">Data Modelling</span>
+      <span class="pill sage">Tableau</span>
+      <span class="pill sage">Excel · VBA</span>
+      <span class="pill sage">PowerShell</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section>
+    <!-- FEATURED PROJECTS -->
+    <div class="section-label"><span>Featured Projects</span></div>
+
+    <!-- ① ROOM UTILISATION -->
+    <div class="featured-card" style="margin-bottom:2rem; background:white; border-radius:22px; overflow:hidden; border:1px solid var(--blush); box-shadow:0 4px 40px rgba(201,116,138,0.07);">
+      <div class="featured-top" style="background:linear-gradient(135deg,#FDF0F3,#F5EFF8); padding:2rem 2.5rem 0; position:relative;">
+        <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:0.5rem;">Excel Engineering · Operations · 2023</p>
+        <!-- ROOM MAP VISUAL -->
+        <div style="background:white;border-radius:14px 14px 0 0;padding:1.2rem 1.5rem;box-shadow:0 -2px 20px rgba(0,0,0,0.04);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+            <span style="font-size:0.7rem;color:var(--mid);font-weight:500;">LIVE OCCUPANCY · 18 JUN</span>
+            <span style="font-size:0.7rem;background:var(--petal);color:var(--rose);padding:0.2rem 0.7rem;border-radius:10px;font-weight:500;">70 rooms occupied</span>
+          </div>
+          <!-- Floor rows -->
+          <div style="font-size:0.6rem;color:var(--light-mid);margin-bottom:0.4rem;letter-spacing:0.1em;">FLOOR 1</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0.8rem;">
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">106<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">107<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">109<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">110<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">111<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">112<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">116<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">117<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">118<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">120<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">121<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">122<span style="font-size:6px;color:var(--rose)">Y</span></div>
+          </div>
+          <div style="font-size:0.6rem;color:var(--light-mid);margin-bottom:0.4rem;letter-spacing:0.1em;">FLOOR 2</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0.6rem;">
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">201<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">202<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">203<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">204<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">205<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">206<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">207<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">208<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">210<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">211<span style="font-size:6px;color:var(--rose)">Y</span></div>
+            <div style="width:32px;height:32px;background:#F0EDF8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--lavender);font-weight:500;border:1px solid #DDD8EE;">212<span style="font-size:6px;color:var(--light-mid)">N</span></div>
+            <div style="width:32px;height:32px;background:#FEF0F3;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;color:var(--rose);font-weight:500;border:1px solid #F5D5DC;">214<span style="font-size:6px;color:var(--rose)">Y</span></div>
+          </div>
+          <div style="display:flex;gap:1rem;">
+            <span style="font-size:0.65rem;color:var(--rose);"><span style="display:inline-block;width:8px;height:8px;background:var(--petal);border:1px solid #F5D5DC;border-radius:2px;margin-right:3px;"></span>Occupied</span>
+            <span style="font-size:0.65rem;color:var(--lavender);"><span style="display:inline-block;width:8px;height:8px;background:#F0EDF8;border:1px solid #DDD8EE;border-radius:2px;margin-right:3px;"></span>Vacant — wing can be closed</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1.8rem 2.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.6rem;">Hotel Room Utilisation &amp; Energy Efficiency Tracker</h3>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem;">Built a live floor-map tool showing which rooms were occupied across the hotel estate on any given day — enabling operations to consolidate guests into fewer wings. Vacant wings could have heating and electricity switched off entirely, delivering direct, measurable energy savings. A clear example of data changing real-world operational behaviour rather than just reporting on it.</p>
+        <div class="card-tech">
+          <span class="tech-tag">Excel</span><span class="tech-tag">VBA / Macros</span><span class="tech-tag">Live Reporting</span><span class="tech-tag">Occupancy Analysis</span><span class="tech-tag">Energy Efficiency</span><span class="tech-tag">Operational BI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② MEDALLION ARCHITECTURE -->
+    <div class="featured-card" style="margin-bottom:2rem; background:white; border-radius:22px; overflow:hidden; border:1px solid var(--blush); box-shadow:0 4px 40px rgba(155,143,191,0.09);">
+      <div style="background:linear-gradient(135deg,#F0EDF8,#EDF4F0);padding:2rem 2.5rem 0;">
+        <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender);font-weight:500;margin-bottom:0.5rem;">Data Engineering · Microsoft Fabric · 2024–2026</p>
+        <!-- MEDALLION DIAGRAM -->
+        <div style="background:white;border-radius:14px 14px 0 0;padding:1.5rem 2rem;box-shadow:0 -2px 20px rgba(0,0,0,0.04);">
+          <div style="text-align:center;font-size:0.65rem;letter-spacing:0.12em;color:var(--light-mid);text-transform:uppercase;margin-bottom:1.2rem;">Medallion Architecture — Microsoft Fabric</div>
+          <!-- Sources row -->
+          <div style="display:flex;justify-content:center;gap:6px;margin-bottom:0.7rem;flex-wrap:wrap;">
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Booking API</span>
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">HR System</span>
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Finance</span>
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Weather API</span>
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Spreadsheets</span>
+            <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">POS</span>
+          </div>
+          <div style="text-align:center;font-size:0.9rem;color:var(--light-mid);margin-bottom:0.5rem;">↓</div>
+          <!-- Three layers -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:0.7rem;">
+            <div style="background:linear-gradient(135deg,#FEF0F3,#FAE8EC);border-radius:10px;padding:0.8rem;text-align:center;border:1px solid #F5D5DC;">
+              <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:0.3rem;">🥉 Bronze</div>
+              <div style="font-size:0.7rem;color:var(--mid);line-height:1.5;">Raw ingestion<br>API · Dataflow · Notebook<br><span style="color:var(--rose);font-weight:500;">OneLake Lakehouse</span></div>
+            </div>
+            <div style="background:linear-gradient(135deg,#F0EDF8,#E8E4F4);border-radius:10px;padding:0.8rem;text-align:center;border:1px solid #DDD8EE;">
+              <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--lavender);font-weight:600;margin-bottom:0.3rem;">🥈 Silver</div>
+              <div style="font-size:0.7rem;color:var(--mid);line-height:1.5;">Clean &amp; transform<br>SQL · Python · T-SQL<br><span style="color:var(--lavender);font-weight:500;">Validated &amp; typed</span></div>
+            </div>
+            <div style="background:linear-gradient(135deg,#EDF4F0,#E2EFE7);border-radius:10px;padding:0.8rem;text-align:center;border:1px solid #B8D4C2;">
+              <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:0.3rem;">🥇 Gold</div>
+              <div style="font-size:0.7rem;color:var(--mid);line-height:1.5;">Insight layer<br>DAX · Power BI<br><span style="color:var(--sage);font-weight:500;">Board-level reports</span></div>
+            </div>
+          </div>
+          <div style="text-align:center;font-size:0.65rem;color:var(--light-mid);">Git · GitHub source control · branching strategy across all layers · 4 properties</div>
+        </div>
+      </div>
+      <div style="padding:1.8rem 2.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.6rem;">Group Data Warehouse — Medallion Architecture in Microsoft Fabric</h3>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem;">Architected and built a full medallion (Bronze → Silver → Gold) data warehouse in Microsoft Fabric covering 4 hotel and spa properties — the first centralised data infrastructure in the company's history. Ingested data from a wide range of sources including REST APIs, live open datasets (weather), booking platforms, HR systems, finance tools, and manual spreadsheets. Led the Bronze ingestion layer and Silver transformation logic end-to-end, with full Git/GitHub source control and a branching strategy across all development. Gold layer feeds all executive Power BI reporting.</p>
+        <div class="card-tech">
+          <span class="tech-tag">Microsoft Fabric</span><span class="tech-tag">OneLake</span><span class="tech-tag">Python</span><span class="tech-tag">T-SQL</span><span class="tech-tag">Dataflows Gen2</span><span class="tech-tag">REST APIs</span><span class="tech-tag">Git / GitHub</span><span class="tech-tag">DAX</span><span class="tech-tag">Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ SPA BRAND PACK POWER BI -->
+    <div class="featured-card" style="margin-bottom:2rem; background:white; border-radius:22px; overflow:hidden; border:1px solid var(--blush); box-shadow:0 4px 40px rgba(201,116,138,0.07);">
+      <div style="background:linear-gradient(135deg,#FDF8F5,#F5EFF8);padding:2rem 2.5rem 0;">
+        <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:0.5rem;">Power BI · Supplier Relations · Lead Analyst</p>
+        <!-- BRAND PACK MOCK -->
+        <div style="background:white;border-radius:14px 14px 0 0;padding:1.2rem 1.5rem;box-shadow:0 -2px 20px rgba(0,0,0,0.04);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1rem;font-weight:600;color:var(--warm-dark);">Brand Pack — Retail &amp; Treatment Sales</span>
+            <div style="display:flex;gap:6px;">
+              <span style="background:#F0EDF8;color:var(--lavender);font-size:0.6rem;padding:0.2rem 0.5rem;border-radius:6px;">Brand A</span>
+              <span style="background:var(--petal);color:var(--rose);font-size:0.6rem;padding:0.2rem 0.5rem;border-radius:6px;">Brand B</span>
+              <span style="background:#EDF4F0;color:var(--sage);font-size:0.6rem;padding:0.2rem 0.5rem;border-radius:6px;">Brand C</span>
+            </div>
+          </div>
+          <!-- Mini bar chart - retail sales -->
+          <div style="margin-bottom:0.8rem;">
+            <div style="font-size:0.62rem;color:var(--light-mid);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.08em;">2025 Retail Revenue by Month</div>
+            <div style="display:flex;align-items:flex-end;gap:3px;height:50px;">
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#E8C5CE;border-radius:2px 2px 0 0;height:28px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#E8C5CE;border-radius:2px 2px 0 0;height:34px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#E8C5CE;border-radius:2px 2px 0 0;height:38px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#C9B4DE;border-radius:2px 2px 0 0;height:30px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#C9B4DE;border-radius:2px 2px 0 0;height:42px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#A8C8B4;border-radius:2px 2px 0 0;height:32px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#A8C8B4;border-radius:2px 2px 0 0;height:36px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#E8C5CE;border-radius:2px 2px 0 0;height:44px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#C9B4DE;border-radius:2px 2px 0 0;height:38px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#E8C5CE;border-radius:2px 2px 0 0;height:48px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#C9B4DE;border-radius:2px 2px 0 0;height:36px;"></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;">
+                <div style="background:#A8C8B4;border-radius:2px 2px 0 0;height:30px;"></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:3px;">
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">J</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">F</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">M</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">A</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">M</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">J</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">J</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">A</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">S</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">O</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">N</div>
+              <div style="flex:1;text-align:center;font-size:0.5rem;color:var(--light-mid);">D</div>
+            </div>
+          </div>
+          <!-- YoY variance row -->
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            <span style="background:#EDF4F0;color:var(--sage);font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:6px;font-weight:500;">YoY Jan +7%</span>
+            <span style="background:#EDF4F0;color:var(--sage);font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:6px;font-weight:500;">Feb +9%</span>
+            <span style="background:#EDF4F0;color:var(--sage);font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:6px;font-weight:500;">Mar +13%</span>
+            <span style="background:var(--petal);color:var(--rose);font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:6px;font-weight:500;">Apr -1%</span>
+            <span style="background:#EDF4F0;color:var(--sage);font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:6px;font-weight:500;">May +14%</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1.8rem 2.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.6rem;">Spa Brand Pack — Monthly Supplier Reporting in Power BI</h3>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem;">Built and maintained a recurring Power BI report pack used in monthly meetings with premium spa product brands — covering retail sales, treatment revenue, year-on-year variance, and product category performance. Provided the analytical backbone for commercial conversations with major suppliers, helping the business negotiate terms and identify underperforming product lines. Built across multiple report pages covering each brand independently with consistent, professional design language.</p>
+        <div class="card-tech">
+          <span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">M Query</span><span class="tech-tag">YoY Analysis</span><span class="tech-tag">Retail Analytics</span><span class="tech-tag">Supplier Relations</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ RURAL RETREAT INSIGHT REPORT -->
+    <div class="featured-card" style="margin-bottom:3rem; background:white; border-radius:22px; overflow:hidden; border:1px solid var(--blush); box-shadow:0 4px 40px rgba(201,116,138,0.07);">
+      <div style="background:linear-gradient(135deg,#F5EFF8,#FDF0F3);padding:2rem 2.5rem 0;">
+        <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender);font-weight:500;margin-bottom:0.5rem;">Campaign Analytics · Post-Launch Insight · Lead Analyst</p>
+        <!-- INSIGHT REPORT MOCK -->
+        <div style="background:white;border-radius:14px 14px 0 0;padding:1.2rem 1.5rem;box-shadow:0 -2px 20px rgba(0,0,0,0.04);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <!-- Map placeholder -->
+            <div>
+              <div style="font-size:0.62rem;color:var(--light-mid);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">Geographic Customer Distribution</div>
+              <div style="background:#F8F5FC;border-radius:10px;height:90px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #EDE8F6;">
+                <!-- Simplified UK map dots -->
+                <svg viewBox="0 0 120 100" style="width:100%;height:100%;">
+                  <ellipse cx="55" cy="50" rx="28" ry="42" fill="#EDE8F6" stroke="#C9B4DE" stroke-width="0.5"></ellipse>
+                  <circle cx="58" cy="58" r="6" fill="#C9748A" opacity="0.5"></circle>
+                  <circle cx="52" cy="62" r="4" fill="#C9748A" opacity="0.4"></circle>
+                  <circle cx="60" cy="52" r="5" fill="#C9748A" opacity="0.45"></circle>
+                  <circle cx="48" cy="55" r="3" fill="#9B8FBF" opacity="0.5"></circle>
+                  <circle cx="55" cy="45" r="3" fill="#9B8FBF" opacity="0.4"></circle>
+                  <circle cx="62" cy="42" r="2" fill="#C9748A" opacity="0.35"></circle>
+                  <circle cx="50" cy="70" r="3" fill="#C9748A" opacity="0.3"></circle>
+                  <circle cx="65" cy="65" r="2.5" fill="#9B8FBF" opacity="0.4"></circle>
+                  <circle cx="70" cy="55" r="2" fill="#C9748A" opacity="0.3"></circle>
+                </svg>
+              </div>
+            </div>
+            <!-- Stats -->
+            <div>
+              <div style="font-size:0.62rem;color:var(--light-mid);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">Campaign Outcomes</div>
+              <table style="width:100%;font-size:0.65rem;border-collapse:collapse;">
+                <tbody><tr style="border-bottom:1px solid var(--blush);">
+                  <td style="padding:0.3rem 0;color:var(--mid);">London bookings</td>
+                  <td style="padding:0.3rem 0;color:var(--warm-dark);font-weight:500;text-align:right;">10%</td>
+                  <td style="padding:0.3rem 0.3rem;color:var(--sage);font-size:0.6rem;text-align:right;">↑ 2%</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--blush);">
+                  <td style="padding:0.3rem 0;color:var(--mid);">Midlands</td>
+                  <td style="padding:0.3rem 0;color:var(--warm-dark);font-weight:500;text-align:right;">39%</td>
+                  <td style="padding:0.3rem 0.3rem;color:var(--sage);font-size:0.6rem;text-align:right;">core</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--blush);">
+                  <td style="padding:0.3rem 0;color:var(--mid);">New customers</td>
+                  <td style="padding:0.3rem 0;color:var(--warm-dark);font-weight:500;text-align:right;">58%</td>
+                  <td style="padding:0.3rem 0.3rem;color:var(--sage);font-size:0.6rem;text-align:right;">✓</td>
+                </tr>
+                <tr>
+                  <td style="padding:0.3rem 0;color:var(--mid);">Treatment conversion</td>
+                  <td style="padding:0.3rem 0;color:var(--rose);font-weight:500;text-align:right;">34%</td>
+                  <td style="padding:0.3rem 0.3rem;color:var(--rose);font-size:0.6rem;text-align:right;">↓ 10%</td>
+                </tr>
+              </tbody></table>
+              <div style="margin-top:0.5rem;background:var(--petal);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.62rem;color:var(--rose);">⚠ Treatment conversion below target — recommend action</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1.8rem 2.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.6rem;">Campaign Insight Report — Post-Launch Analysis</h3>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem;">Following significant commercial decisions such as a new package or campaign launch, produced a structured insight report to evaluate performance against objectives. Analysed geographic customer distribution, new vs returning guest split, treatment conversion rates, and booking behaviour — surfacing actionable findings for the commercial and marketing teams. This kind of post-launch analysis became a standard output, ensuring every major decision was followed by honest, data-led accountability.</p>
+        <div class="card-tech">
+          <span class="tech-tag">Power BI</span><span class="tech-tag">Customer Analytics</span><span class="tech-tag">Geographic Analysis</span><span class="tech-tag">Conversion Tracking</span><span class="tech-tag">Campaign Evaluation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ SPA BRAND PACK POWER BI -->
+    <div class="featured-card" style="margin-bottom:2rem; background:white; border-radius:22px; overflow:hidden; border:1px solid var(--blush); box-shadow:0 4px 40px rgba(201,116,138,0.07);">
+      <div style="background:linear-gradient(135deg,#F5EFF8,#EDF4F0); padding:2rem 2.5rem 0;">
+        <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender);font-weight:500;margin-bottom:0.5rem;">Power BI · Retail &amp; Treatment Analytics · Lead Analyst</p>
+        <!-- BRAND PACK VISUAL MOCK -->
+        <div style="background:white;border-radius:14px 14px 0 0;padding:1.4rem 1.6rem;box-shadow:0 -2px 20px rgba(0,0,0,0.04);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <div>
+              <div style="font-size:0.75rem;font-weight:600;color:var(--warm-dark);">Spa Brand Pack — 2025</div>
+              <div style="font-size:0.62rem;color:var(--light-mid);margin-top:2px;">Retail &amp; Treatment Performance · Annual View</div>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <span style="font-size:0.6rem;background:#F5EFF8;color:var(--lavender);padding:0.2rem 0.6rem;border-radius:8px;font-weight:500;">Elemis</span>
+              <span style="font-size:0.6rem;background:#EDF4F0;color:var(--sage);padding:0.2rem 0.6rem;border-radius:8px;font-weight:500;">VOYA</span>
+              <span style="font-size:0.6rem;background:var(--petal);color:var(--rose);padding:0.2rem 0.6rem;border-radius:8px;font-weight:500;">Grown Alchemist</span>
+            </div>
+          </div>
+          <!-- Bar chart simulation -->
+          <div style="margin-bottom:0.8rem;">
+            <div style="font-size:0.6rem;color:var(--light-mid);margin-bottom:0.5rem;letter-spacing:0.08em;">MONTHLY RETAIL REVENUE (£K)</div>
+            <div style="display:flex;align-items:flex-end;gap:5px;height:60px;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="60"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Jan</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="72"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Feb</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="78"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Mar</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="75"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Apr</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="82"></div>
+                <div style="font-size:6px;color:var(--light-mid);">May</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="70"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Jun</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="88"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Jul</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="92"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Aug</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="85"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Sep</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="95"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Oct</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="80"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Nov</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                <div style="width:100%;background:#C4BEDD;border-radius:3px 3px 0 0;" data-h="74"></div>
+                <div style="font-size:6px;color:var(--light-mid);">Dec</div>
+              </div>
+            </div>
+          </div>
+          <!-- YoY variance row -->
+          <div style="background:#F5EFF8;border-radius:8px;padding:0.5rem 0.8rem;display:flex;gap:1.2rem;">
+            <div style="font-size:0.6rem;color:var(--lavender);font-weight:600;">YoY VARIANCE</div>
+            <div style="display:flex;gap:0.8rem;">
+              <span style="font-size:0.6rem;color:var(--sage);">Jan +7%</span>
+              <span style="font-size:0.6rem;color:var(--sage);">Feb +9%</span>
+              <span style="font-size:0.6rem;color:var(--sage);">Mar +13%</span>
+              <span style="font-size:0.6rem;color:var(--rose);">Apr -1%</span>
+              <span style="font-size:0.6rem;color:var(--sage);">May +14%</span>
+              <span style="font-size:0.6rem;color:var(--rose);">Jun -2%</span>
+              <span style="font-size:0.6rem;color:var(--rose);">Jul -5%</span>
+              <span style="font-size:0.6rem;color:var(--sage);">Aug +7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1.8rem 2.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.5rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.6rem;">Spa Brand Pack — Monthly Supplier Reporting</h3>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem;">Built and maintained a suite of Power BI reports serving as the backbone to monthly meetings with major spa brands — Elemis, VOYA, and Grown Alchemist. The reports tracked full-year retail and treatment sales by product category, year-on-year variance, and volume sold, giving both internal stakeholders and brand representatives a clear, consistent view of performance to inform ranging, stocking, and promotional decisions. Maintained across multiple years (2024, 2025, 2026) with each brand pack versioned and updated monthly.</p>
+        <div class="card-tech">
+          <span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">Retail Analytics</span><span class="tech-tag">Treatment Sales</span><span class="tech-tag">Supplier Reporting</span><span class="tech-tag">YoY Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALSO IN THIS PORTFOLIO -->
+    <div class="section-label"><span>Also In This Portfolio</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:4rem;">
+
+      <div style="background:white;border-radius:14px;padding:1.4rem 1.6rem;border:1px solid var(--blush);">
+        <p style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:0.4rem;">Commercial Finance · 2023–24</p>
+        <p style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.1rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.5rem;">Beverage Supplier Cost Analysis</p>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;margin-bottom:0.8rem;">Produced detailed side-by-side cost comparison analysis to support a major beverage supplier switch — modelling invoice prices, retro rebates, and year-to-date cost differences across hundreds of product lines to inform a significant procurement decision.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;"><span class="tech-tag">Excel</span><span class="tech-tag">Procurement</span><span class="tech-tag">Cost Modelling</span></div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:1.4rem 1.6rem;border:1px solid var(--blush);">
+        <p style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lavender);font-weight:500;margin-bottom:0.4rem;">Commercial Finance · 2023–24</p>
+        <p style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.1rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.5rem;">Weekly Procurement Dashboard</p>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;margin-bottom:0.8rem;">Built a weekly P&amp;L and procurement reporting pack for the Finance team covering revenue, cost of sales, departmental payroll, and supplier contract tracking — with beverage and food price index charts for benchmarking against market inflation.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;"><span class="tech-tag">Excel</span><span class="tech-tag">P&amp;L Reporting</span><span class="tech-tag">Finance</span><span class="tech-tag">Price Indexing</span></div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:1.4rem 1.6rem;border:1px solid var(--blush);">
+        <p style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:0.4rem;">Lead Analyst · Operational BI</p>
+        <p style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.1rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.5rem;">Food &amp; Beverage Upsell Report</p>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;margin-bottom:0.8rem;">Developed a granular F&amp;B report tracking additional spend per day guest across food and beverage categories. Findings were used to introduce employee incentive programmes and operational changes that increased on-property spend — a direct line from analysis to commercial action.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;"><span class="tech-tag">Excel</span><span class="tech-tag">Upsell Analytics</span><span class="tech-tag">Operational BI</span><span class="tech-tag">Incentive Design</span></div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:1.4rem 1.6rem;border:1px solid var(--blush);">
+        <p style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:0.4rem;">Data Engineering · 2024–2025</p>
+        <p style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.1rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.5rem;">Legacy ETL Pipeline — Postgres</p>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;margin-bottom:0.8rem;">Sole owner and maintainer of a legacy ETL pipeline using Excel macros to export data to CSV, ingested into a Postgres database via DBeaver. A technically demanding and temperamental system that required constant vigilance — ultimately the catalyst for the Fabric warehouse project.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;"><span class="tech-tag">PostgreSQL</span><span class="tech-tag">DBeaver</span><span class="tech-tag">Excel Macros</span><span class="tech-tag">ETL</span><span class="tech-tag">CSV Ingestion</span></div>
+      </div>
+
+    </div>
+
+  <!-- CURRENTLY BUILDING -->
+  <section style="margin-bottom: 4rem;">
+    <div class="section-label"><span>Currently Building</span></div>
+    <div style="background: white; border-radius: 18px; padding: 2rem 2.5rem; border: 1px dashed var(--blush); display: flex; gap: 1.5rem; align-items: flex-start;">
+      <div style="font-size: 1.8rem; line-height:1;">🌱</div>
+      <div>
+        <p style="font-family: &#39;Cormorant Garamond&#39;, serif; font-size: 1.15rem; font-weight: 600; color: var(--warm-dark); margin-bottom: 0.4rem;">Personal Data Engineering Project</p>
+        <p style="font-size: 0.85rem; color: var(--mid); line-height: 1.7;">Working on a personal end-to-end data project to showcase my full stack publicly — from ingestion and pipeline build through to a polished insight layer. Watch this space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <div class="section-label"><span>Technical Skills</span></div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <p class="skill-block-title">Data Engineering</p>
+        <ul>
+          <li>Microsoft Fabric</li>
+          <li>REST API ingestion</li>
+          <li>Dataflows Gen2</li>
+          <li>Notebooks &amp; Pipelines</li>
+          <li>OneLake / Lakehouses</li>
+          <li>SQL Server · SSMS</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">Languages</p>
+        <ul>
+          <li>SQL (T-SQL)</li>
+          <li>Python</li>
+          <li>DAX</li>
+          <li>M (Power Query)</li>
+          <li>PowerShell</li>
+          <li>JSON</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">BI &amp; Visualisation</p>
+        <ul>
+          <li>Power BI (advanced)</li>
+          <li>Tableau</li>
+          <li>Excel (advanced)</li>
+          <li>VBA &amp; Macros</li>
+          <li>Data storytelling</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">Dev &amp; Tooling</p>
+        <ul>
+          <li>Git / GitHub</li>
+          <li>Visual Studio Code</li>
+          <li>SSMS</li>
+          <li>Branching strategy</li>
+          <li>Source control</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">Certifications</p>
+        <ul>
+          <li>Microsoft Fabric Analyst in a Day (2026)</li>
+          <li>LSE Data Analysis for Management (2024)</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">Domains</p>
+        <ul>
+          <li>Hospitality &amp; Spa</li>
+          <li>Revenue &amp; Pricing</li>
+          <li>HR &amp; People data</li>
+          <li>Finance &amp; Procurement</li>
+          <li>Customer analytics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="journey-section">
+    <div class="section-label"><span>Career Journey</span></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="tl-date">Jun 2026 – Present</p>
+        <p class="tl-title">Quality &amp; People BI Analyst — Hiddenwell Destination Spa Hotels</p>
+        <p class="tl-desc">Dual-function role: delivering People &amp; HR reporting to support strategic workforce decisions, while holding sole responsibility for data quality and integrity at ingestion across the group.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-date">Aug 2024 – May 2026</p>
+        <p class="tl-title">Lead Analyst — Barons Eden</p>
+        <p class="tl-desc">Built the group's data warehouse in Microsoft Fabric end-to-end. API ingestion, Python transformation, Git source control, advanced Power BI reporting.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-date">Apr 2023 – Sep 2024</p>
+        <p class="tl-title">Commercial Finance Analyst — Barons Eden</p>
+        <p class="tl-desc">Finance and procurement analysis across the group. Tableau dashboards, LSE certification. Deepened statistical and commercial analytical skills.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-date">Nov 2022 – May 2023</p>
+        <p class="tl-title">Commercial Analyst — Barons Eden</p>
+        <p class="tl-desc">Founding member of the analytics department. Sales reporting, campaign analysis, first Power BI dashboards for the business.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-date">Oct 2021 – Nov 2022</p>
+        <p class="tl-title">Administrator → QA Specialist — Barons Eden</p>
+        <p class="tl-desc">Developed data accuracy instincts, Excel expertise and macro-based audit tooling. Selected for analytics team within 8 months.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:ljparkinson51@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/lucy-jasmine-parkinson">LinkedIn</a>
+    </div>
+  </footer>
+
+</section></div>
+
+
+</body></html>
