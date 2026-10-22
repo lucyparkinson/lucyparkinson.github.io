@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0058)file:///C:/Users/lucy.parkinson/Downloads/index%20(1).html -->
+<!-- saved from url=(0058)file:///C:/Users/lucy.parkinson/Downloads/index%20(2).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucy-Jasmine Parkinson — Data Engineering Portfolio</title>
-<meta name="description" content="Data engineer building lakehouse architecture, ingestion pipelines and data quality monitoring in Microsoft Fabric.">
+<title>Lucy-Jasmine Parkinson — Analytics Engineering Portfolio</title>
+<meta name="description" content="Analytics engineer building lakehouse pipelines, dimensional models and Power BI reporting in Microsoft Fabric.">
 
-<!-- FIX: fonts now load from Google's CDN. The previous ./index_files/css2 path
-     did not exist in the repo, so Cormorant Garamond and DM Sans silently 404'd
-     and the live site fell back to system fonts. -->
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="./index_files/css2" rel="stylesheet">
@@ -437,9 +434,6 @@ outline: 2px solid var(--lavender);
 outline-offset: 3px;
 border-radius: 2px;
 }
-/* FIX: several elements start at opacity:0 and are only revealed by animation.
-   If a visitor has reduced motion enabled, those animations never run and the
-   content stays invisible. This forces them visible. */
 @media (prefers-reduced-motion: reduce) {
 *, *::before, *::after {
 animation-duration: 0.01ms !important;
@@ -475,19 +469,14 @@ transition-duration: 0.01ms !important;
 <header>
 <div class="header-inner">
 <div>
-<p class="eyebrow">Portfolio</p>
+<p class="eyebrow">Analytics Engineer</p>
 <h1>Lucy-Jasmine<br><em>Parkinson</em></h1>
-<!-- Reverted to your original tagline. -->
 <p class="tagline">From raw data to real decisions — end to end.</p>
 </div>
 <div class="header-links">
 <a href="mailto:ljparkinson51@gmail.com">ljparkinson51@gmail.com</a>
 <a href="https://linkedin.com/in/lucy-jasmine-parkinson">LinkedIn ↗</a>
 <a href="https://github.com/lucyparkinson">GitHub ↗</a>
-<!-- CV link removed. The original pointed at a local Downloads path, which was
-     broken for every visitor and exposed a Windows username. To add one back
-     later: commit cv.pdf to the repo root and use
-     <a href="./cv.pdf" download>Download CV ↓</a> -->
 </div>
 </div>
 <div class="divider"></div>
@@ -495,9 +484,7 @@ transition-duration: 0.01ms !important;
 
 <!-- ══════════ ABOUT ══════════ -->
 <div class="about-strip">
-<!-- CHANGED: reordered so the warehouse build leads and the progression from
-     Administrator supports it, rather than the other way round. -->
-<p>Data engineer with five years at Barons Eden and Hiddenwell, where I was part of the team that delivered the group's first data warehouse — a medallion lakehouse in Microsoft Fabric spanning four hotel and spa properties, ingesting REST APIs, booking and HR platforms, finance systems, open weather data and manual spreadsheets. I led the bronze ingestion and silver transformation layers, and now own data quality at ingestion across the organisation. The reporting built on top is used by every manager and above in the business. Currently Quality &amp; People BI Analyst at Hiddenwell Destination Spa Hotels.</p>
+<p>Analytics engineer with five years at Hiddenwell (formerly Barons Eden), a four-property hotel and spa group. I was part of the team that built its first data warehouse — a medallion lakehouse in Microsoft Fabric — where I led the bronze ingestion and silver transformation layers. Eleven source systems now land in it: property management and booking platforms, workforce and HR, EPOS, telephony, procurement, web marketing, open weather data and manual spreadsheets. I own data and reporting accuracy across bronze, silver and gold, and I'm currently leading the migration of the group's new property management system into the existing warehouse model. My title is Quality &amp; People BI Analyst; the work is analytics engineering.</p>
 
 <div class="stack-pills">
 <span class="pill">Microsoft Fabric</span>
@@ -507,9 +494,9 @@ transition-duration: 0.01ms !important;
 <span class="pill">Delta Tables</span>
 <span class="pill lavender">REST APIs</span>
 <span class="pill lavender">CI/CD · GitHub Actions</span>
-<span class="pill lavender">Data Modelling</span>
+<span class="pill lavender">Dimensional Modelling</span>
 <span class="pill sage">Power BI · DAX</span>
-<span class="pill sage">Tableau</span>
+<span class="pill sage">Semantic Models</span>
 <span class="pill sage">Excel · VBA · PowerShell</span>
 </div>
 </div>
@@ -518,8 +505,58 @@ transition-duration: 0.01ms !important;
 <section>
 <div class="section-label"><span>Featured Projects</span></div>
 
-<!-- ① MEDALLION WAREHOUSE — moved to the front. This is the strongest thing
-     you've built and it should be the first thing an engineering hire sees. -->
+<!-- ① PMS MIGRATION -->
+<article class="featured-card">
+<div class="featured-top rose-top">
+<p class="featured-kicker">Analytics Engineering · Project Lead · 2026</p>
+
+<div class="mock">
+<div class="mock-title">Migration Scope — 56 Target Tables</div>
+
+<table style="width:100%;font-size:0.68rem;border-collapse:collapse;margin-bottom:0.7rem;">
+<tbody>
+<tr style="border-bottom:1px solid var(--blush);">
+<td style="padding:0.35rem 0;color:var(--mid);">Sales · booked value</td>
+<td style="padding:0.35rem 0;text-align:right;color:var(--light-mid);">21 targets</td>
+<td style="padding:0.35rem 0;text-align:right;"><span style="background:#EDF4F0;color:var(--sage);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">IN BUILD</span></td>
+</tr>
+<tr style="border-bottom:1px solid var(--blush);">
+<td style="padding:0.35rem 0;color:var(--mid);">Customers · identity resolution</td>
+<td style="padding:0.35rem 0;text-align:right;color:var(--light-mid);">mapped</td>
+<td style="padding:0.35rem 0;text-align:right;"><span style="background:#EDF4F0;color:var(--sage);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">IN BUILD</span></td>
+</tr>
+<tr style="border-bottom:1px solid var(--blush);">
+<td style="padding:0.35rem 0;color:var(--mid);">Stays · folio structure</td>
+<td style="padding:0.35rem 0;text-align:right;color:var(--light-mid);">profiled</td>
+<td style="padding:0.35rem 0;text-align:right;"><span style="background:#F0EDF8;color:var(--lavender);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">MAPPING</span></td>
+</tr>
+<tr>
+<td style="padding:0.35rem 0;color:var(--mid);">Actuals · posted charges</td>
+<td style="padding:0.35rem 0;text-align:right;color:var(--light-mid);">wave 2</td>
+<td style="padding:0.35rem 0;text-align:right;"><span style="background:var(--petal);color:var(--rose);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">QUEUED</span></td>
+</tr>
+</tbody>
+</table>
+
+<div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center;">
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.22rem 0.55rem;font-size:0.6rem;color:var(--mid);">Routing rule</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.22rem 0.55rem;font-size:0.6rem;color:var(--mid);">Scoped deletes</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.22rem 0.55rem;font-size:0.6rem;color:var(--mid);">Definition of done</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.22rem 0.55rem;font-size:0.6rem;color:var(--mid);">Decisions log</span>
+</div>
+</div>
+</div>
+
+<div class="featured-body">
+<h3>PMS Migration — New Source System into an Existing Warehouse Model</h3>
+<p>Leading the migration of the group's new property management system into a dimensional model built around the platform it replaces, so reporting stays continuous across both. I ran a warehouse inventory to scope it — 56 target tables — then split the work into slices owned end to end and set the standards the team builds to: a routing rule for new versus existing load procedures, merge deletes scoped by source system so the retired platform's history can't be wiped, and a defined rule for columns with no equivalent in the new source. The vendor's bronze layer turned out to be parquet files rather than queryable tables, so I built a control-driven parquet-to-Delta step — five modules, 144 entity loads — scheduled behind their nightly extract with failure alerts. When their engineers came off the project, I brought the outstanding scope into environments my team could reach rather than let it stall.</p>
+<div class="card-tech">
+<span class="tech-tag">Microsoft Fabric</span><span class="tech-tag">PySpark</span><span class="tech-tag">Delta Tables</span><span class="tech-tag">T-SQL</span><span class="tech-tag">Dimensional Modelling</span><span class="tech-tag">Parquet</span><span class="tech-tag">Data Pipelines</span><span class="tech-tag">Project Leadership</span>
+</div>
+</div>
+</article>
+
+<!-- ② MEDALLION WAREHOUSE -->
 <article class="featured-card">
 <div class="featured-top lavender-top">
 <p class="featured-kicker lavender">Data Engineering · Microsoft Fabric · 2024–2026</p>
@@ -528,12 +565,14 @@ transition-duration: 0.01ms !important;
 <div class="mock-title">Medallion Architecture — Microsoft Fabric</div>
 
 <div style="display:flex;justify-content:center;gap:6px;margin-bottom:0.7rem;flex-wrap:wrap;">
-<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Booking API</span>
-<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">HR System</span>
-<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Finance</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">PMS · Booking</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Workforce · HR</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">EPOS</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Telephony</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Procurement</span>
+<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Web Marketing</span>
 <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Weather API</span>
 <span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">Spreadsheets</span>
-<span style="background:#FDF8F5;border:1px solid var(--blush);border-radius:8px;padding:0.25rem 0.6rem;font-size:0.65rem;color:var(--mid);">POS</span>
 </div>
 
 <div style="text-align:center;font-size:0.9rem;color:var(--light-mid);margin-bottom:0.5rem;">↓</div>
@@ -553,63 +592,20 @@ transition-duration: 0.01ms !important;
 </div>
 </div>
 
-<div style="text-align:center;font-size:0.65rem;color:var(--light-mid);">Git branching strategy · automated deployment · run logging at every step · 4 properties</div>
+<div style="text-align:center;font-size:0.65rem;color:var(--light-mid);">11 source systems · 4 properties · run logging at every step · automated deployment</div>
 </div>
 </div>
 
 <div class="featured-body">
 <h3>Group Data Warehouse — Medallion Lakehouse in Microsoft Fabric</h3>
-<p>Part of the team that delivered the company's first centralised data infrastructure — a full Bronze → Silver → Gold warehouse in Microsoft Fabric covering four hotel and spa properties, replacing a fragile Excel-macro-to-Postgres pipeline. I led the bronze ingestion and silver transformation layers end to end: ingestion spans REST APIs, booking platforms, HR and finance systems, live open datasets and manual spreadsheets, each landing with its own run logging, with typing, conformance and business rules applied in PySpark and Delta. Gold serves a dimensional model consumed by every Power BI report in the group. All of it under Git source control with a branching strategy across layers.</p>
+<p>Part of the team that delivered the company's first centralised data infrastructure — a full Bronze → Silver → Gold warehouse in Microsoft Fabric covering four hotel and spa properties, replacing a fragile Excel-macro-to-Postgres pipeline. I led the bronze ingestion and silver transformation layers end to end. Eleven source systems land in it through REST APIs, SFTP drops, an on-premises gateway and file ingestion, each with its own run logging, and typing, conformance and business rules are applied in PySpark and Delta. Gold serves the dimensional model behind the group's Power BI reporting, including identity resolution so the same guest or staff member isn't counted twice across systems. All of it under Git source control with a branching strategy across layers.</p>
 <div class="card-tech">
 <span class="tech-tag">Microsoft Fabric</span><span class="tech-tag">OneLake</span><span class="tech-tag">PySpark</span><span class="tech-tag">Delta Tables</span><span class="tech-tag">T-SQL</span><span class="tech-tag">REST APIs</span><span class="tech-tag">Dataflows Gen2</span><span class="tech-tag">Git / GitHub</span><span class="tech-tag">Power BI</span>
 </div>
 </div>
 </article>
 
-<!-- ② DATA QUALITY FRAMEWORK — NEW.
-     ⚠ CHECK THIS COPY. I've written it from what you described; correct the
-     specifics (check types, table names, how failures surface) before publishing. -->
-<article class="featured-card">
-<div class="featured-top sage-top">
-<p class="featured-kicker sage">Data Engineering · Data Quality · 2025–2026</p>
-
-<div class="mock">
-<div class="mock-title">Data Quality Results — Latest Run</div>
-<table style="width:100%;font-size:0.68rem;border-collapse:collapse;">
-<tbody>
-<tr style="border-bottom:1px solid var(--blush);">
-<td style="padding:0.35rem 0;color:var(--mid);">brz_reservations · row count vs source</td>
-<td style="padding:0.35rem 0;text-align:right;"><span style="background:#EDF4F0;color:var(--sage);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">PASS</span></td>
-</tr>
-<tr style="border-bottom:1px solid var(--blush);">
-<td style="padding:0.35rem 0;color:var(--mid);">brz_employees · null check on business key</td>
-<td style="padding:0.35rem 0;text-align:right;"><span style="background:#EDF4F0;color:var(--sage);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">PASS</span></td>
-</tr>
-<tr style="border-bottom:1px solid var(--blush);">
-<td style="padding:0.35rem 0;color:var(--mid);">slv_absence · referential integrity to dim_staff</td>
-<td style="padding:0.35rem 0;text-align:right;"><span style="background:var(--petal);color:var(--rose);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">3 ORPHANS</span></td>
-</tr>
-<tr>
-<td style="padding:0.35rem 0;color:var(--mid);">brz_weather · freshness within 24h</td>
-<td style="padding:0.35rem 0;text-align:right;"><span style="background:#EDF4F0;color:var(--sage);padding:0.15rem 0.5rem;border-radius:8px;font-size:0.6rem;font-weight:500;">PASS</span></td>
-</tr>
-</tbody>
-</table>
-<div style="margin-top:0.6rem;background:var(--petal);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.62rem;color:var(--rose);">Failures are logged and surfaced before they reach a report</div>
-</div>
-</div>
-
-<div class="featured-body">
-<h3>Warehouse-Wide Data Quality Framework</h3>
-<p>Designed and built a monitoring layer that runs checks at ingestion across every source in the warehouse and writes results to a central logging schema. Row-count reconciliation against source, null and type violations, referential breaks and freshness thresholds are recorded per table per run, so a broken feed is caught as a logged failure rather than discovered by a manager reading a wrong number three days later. Now the group's single source of truth for data integrity, and the reason reporting can be trusted without manual reconciliation.</p>
-<div class="card-tech">
-<span class="tech-tag">T-SQL</span><span class="tech-tag">PySpark</span><span class="tech-tag">Data Quality</span><span class="tech-tag">Observability</span><span class="tech-tag">Logging Schema</span><span class="tech-tag">Microsoft Fabric</span>
-</div>
-</div>
-</article>
-
-<!-- ③ CI/CD — NEW.
-     ⚠ CHECK THIS COPY TOO. Adjust to match how your workflow actually runs. -->
+<!-- ③ CI/CD -->
 <article class="featured-card">
 <div class="featured-top rose-top">
 <p class="featured-kicker">Platform Engineering · CI/CD · 2025–2026</p>
@@ -625,21 +621,43 @@ transition-duration: 0.01ms !important;
 <span style="color:var(--light-mid);font-size:0.75rem;">→</span>
 <div style="flex:1;min-width:78px;background:#EDF4F0;border:1px solid #B8D4C2;border-radius:9px;padding:0.5rem 0.3rem;text-align:center;font-size:0.62rem;color:var(--sage);">Publish to<br>warehouse</div>
 </div>
-<div style="margin-top:0.7rem;text-align:center;font-size:0.62rem;color:var(--light-mid);letter-spacing:0.08em;">NO MANUAL SCRIPTS RUN AGAINST PRODUCTION</div>
+<div style="margin-top:0.7rem;text-align:center;font-size:0.62rem;color:var(--light-mid);letter-spacing:0.08em;">REVIEWED · VERSIONED · REPEATABLE ACROSS DEV, TEST AND PROD</div>
 </div>
 </div>
 
 <div class="featured-body">
 <h3>Automated Warehouse Deployment — DACPAC &amp; GitHub Actions</h3>
-<p>Warehouse schema is defined in source control and deployed automatically. A merge triggers a GitHub Actions workflow that builds a DACPAC from the database project and publishes it to the target warehouse, so schema changes move through environments the same way application code does — reviewed in a pull request, versioned, and repeatable. Removed the class of failure where a change works in development because someone remembered to run a script by hand, and made every deployment auditable.</p>
+<p>Warehouse schema is defined in source control and deployed automatically. A merge triggers a GitHub Actions workflow that builds a DACPAC from the database project and publishes it to the target warehouse, so schema changes move through dev, test and production the same way application code does — reviewed in a pull request, versioned and repeatable, with environment-specific references resolved at deploy time rather than hard-coded per environment. I maintain the shared workflow repository these deployments run through, and I'm the person who diagnoses and fixes the build failures when they happen.</p>
 <div class="card-tech">
 <span class="tech-tag">GitHub Actions</span><span class="tech-tag">DACPAC</span><span class="tech-tag">CI/CD</span><span class="tech-tag">SQL Database Projects</span><span class="tech-tag">Source Control</span><span class="tech-tag">Release Management</span>
 </div>
 </div>
 </article>
 
-<!-- ④ ROOM UTILISATION — kept, moved below the engineering work.
-     Still a great story; just not the first impression for an engineering role. -->
+<!-- ④ HALLOWEEN DATA CHALLENGE -->
+<article class="featured-card">
+<div class="featured-top sage-top">
+<p class="featured-kicker sage">Data Storytelling · Fabric Community Challenge · 2026</p>
+
+<div class="mock" style="padding:1rem;">
+<a href="file:///C:/Users/lucy.parkinson/Downloads/Projects/WhatKeepsYouUp_poster.png" style="display:block;">
+<img src="file:///C:/Users/lucy.parkinson/Downloads/Projects/WhatKeepsYouUp_poster.png" alt="What Keeps You Up At Night — data poster on childhood and adult fears, built in Power BI" loading="lazy" style="display:block;width:100%;max-width:300px;margin:0 auto;border-radius:6px;border:1px solid var(--blush);">
+</a>
+<div style="text-align:center;font-size:0.6rem;letter-spacing:0.08em;color:var(--light-mid);margin-top:0.7rem;text-transform:uppercase;">Click to view full size</div>
+</div>
+</div>
+
+<div class="featured-body">
+<h3>What Keeps You Up — Narrative Data Poster</h3>
+<p>An A4 poster built entirely in Power BI for the Fabric Community's Halloween data challenge, from the organisers' survey of 105 people in the data community: what scared them as children, and what scares them now. I modelled the responses as a star schema — fear, country, gender and age-group dimensions over a response fact — rather than charting the survey flat, then built the piece around two findings. Thirty-six of the 43 children who feared something spooky have grown out of it, while those who feared other people are twice as likely to still fear them as everyone else, 63% against 30%. And the share naming a global threat climbs with how late someone answered: 18% in the morning against 38% between 10pm and midnight, which meant deriving each respondent's local answer time from their country before the comparison was possible. The after-midnight group is reported as four of five rather than 80%, because five people isn't a percentage. Ghost and clock marks are one respondent each, drawn in Deneb (Vega-Lite) alongside native visuals, with the light-to-dark split carrying the narrative down the page.</p>
+<div class="card-tech">
+<span class="tech-tag">Power BI</span><span class="tech-tag">Deneb / Vega-Lite</span><span class="tech-tag">DAX</span><span class="tech-tag">Star Schema</span><span class="tech-tag">Custom Theming</span><span class="tech-tag">Data Storytelling</span>
+</div>
+<p style="margin-top:1rem;margin-bottom:0;font-size:0.78rem;"><a href="file:///C:/Users/lucy.parkinson/Downloads/Projects/WhatKeepsYouUp_LucyJasmineParkinson.pbix" style="color:var(--lavender);text-decoration:none;border-bottom:1px solid var(--lavender-light);padding-bottom:1px;">Download the .pbix ↓</a></p>
+</div>
+</article>
+
+<!-- ⑤ ROOM UTILISATION -->
 <article class="featured-card">
 <div class="featured-top rose-top">
 <p class="featured-kicker">Operational Analytics · 2023</p>
@@ -698,7 +716,7 @@ transition-duration: 0.01ms !important;
 </div>
 </article>
 
-<!-- ⑤ CAMPAIGN INSIGHT -->
+<!-- ⑥ CAMPAIGN INSIGHT -->
 <article class="featured-card">
 <div class="featured-top rose-top">
 <p class="featured-kicker lavender">Campaign Analytics · Post-Launch Insight</p>
@@ -763,7 +781,7 @@ transition-duration: 0.01ms !important;
 </div>
 </article>
 
-<!-- ⑥ SPA BRAND PACK -->
+<!-- ⑦ SPA BRAND PACK -->
 <article class="featured-card" style="margin-bottom:3rem;">
 <div class="featured-top sage-top">
 <p class="featured-kicker lavender">Power BI · Retail &amp; Treatment Analytics</p>
@@ -830,8 +848,20 @@ transition-duration: 0.01ms !important;
 <div class="section-label"><span>Also In This Portfolio</span></div>
 <div class="small-grid">
 
-<!-- MOVED UP: the legacy pipeline is engineering context and explains WHY the
-     warehouse existed. Better placed first in this group. -->
+<div class="small-card">
+<p class="kicker lavender">Governance &amp; Documentation · 2026</p>
+<h4>Warehouse Data Catalogue &amp; Knowledge Base</h4>
+<p>Documented the silver layer end to end — core tables with 557 columns checked against the DDL, a glossary, reference data, source mappings and a core data-model diagram. Lives in the repo and is linked from the README, so it stays with the code rather than in a document nobody updates.</p>
+<div class="card-tech"><span class="tech-tag">Data Catalogue</span><span class="tech-tag">Lineage</span><span class="tech-tag">Markdown / Git</span><span class="tech-tag">Governance</span></div>
+</div>
+
+<div class="small-card">
+<p class="kicker">Reporting Accuracy · 2026</p>
+<h4>Board Pack People Reporting</h4>
+<p>Took on the group People report that goes to directors and the investor board when its owner left. Rebuilt the visuals and corrected the figures — test profiles were being counted in the numbers. I walk the COO through the reporting directly rather than sending it out cold.</p>
+<div class="card-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">HR Analytics</span><span class="tech-tag">Row-Level Security</span></div>
+</div>
+
 <div class="small-card">
 <p class="kicker sage">Data Engineering · 2024–2025</p>
 <h4>Legacy ETL Pipeline — Postgres</h4>
@@ -863,32 +893,19 @@ transition-duration: 0.01ms !important;
 </div>
 </section>
 
-<!-- ══════════ CURRENTLY BUILDING ══════════
-     The original section trailed off mid-sentence with nothing behind it, which
-     reads as an intention rather than work. Either fill this in with something
-     shipped and link the repo, or delete the whole section until you have.
-     Left here, tightened, so you can decide.
-<section style="margin-bottom:4rem;">
-<div class="section-label"><span>Currently Building</span></div>
-<div style="background:white;border-radius:18px;padding:2rem 2.5rem;border:1px dashed var(--blush);">
-<p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--warm-dark);margin-bottom:0.4rem;">NAME THE PROJECT</p>
-<p style="font-size:0.85rem;color:var(--mid);line-height:1.7;">One sentence on what it ingests, one on what it produces, and a link to the repo.</p>
-</div>
-</section>
--->
-
 <!-- ══════════ SKILLS ══════════ -->
 <section class="skills-section">
 <div class="section-label"><span>Technical Skills</span></div>
 <div class="skills-grid">
 
 <div class="skill-block">
-<p class="skill-block-title">Data Engineering</p>
+<p class="skill-block-title">Analytics Engineering</p>
 <ul>
 <li>Microsoft Fabric</li>
 <li>Medallion architecture</li>
+<li>Dimensional modelling</li>
 <li>PySpark &amp; Delta tables</li>
-<li>REST API ingestion</li>
+<li>REST API &amp; file ingestion</li>
 <li>OneLake / Lakehouses</li>
 <li>SQL Server · SSMS</li>
 </ul>
@@ -911,14 +928,13 @@ transition-duration: 0.01ms !important;
 <ul>
 <li>Power BI (advanced)</li>
 <li>Semantic modelling</li>
+<li>Row-level security</li>
+<li>Deneb / Vega-Lite</li>
 <li>Tableau</li>
-<li>Excel (advanced)</li>
-<li>VBA &amp; macros</li>
+<li>Excel (advanced) · VBA</li>
 </ul>
 </div>
 
-<!-- CHANGED: this block now names the deployment tooling explicitly rather than
-     just "source control" — it's a materially stronger claim. -->
 <div class="skill-block">
 <p class="skill-block-title">Dev &amp; Delivery</p>
 <ul>
@@ -930,8 +946,6 @@ transition-duration: 0.01ms !important;
 </ul>
 </div>
 
-<!-- CHANGED: "Fabric Analyst in a Day" is a workshop, not a certification, and a
-     technical interviewer will know that. Moved to Training. -->
 <div class="skill-block">
 <p class="skill-block-title">Training</p>
 <ul>
@@ -962,7 +976,7 @@ transition-duration: 0.01ms !important;
 <div class="timeline-item">
 <p class="tl-date">Jun 2026 – Present</p>
 <p class="tl-title">Quality &amp; People BI Analyst — Hiddenwell Destination Spa Hotels</p>
-<p class="tl-desc">Sole responsibility for data quality and integrity at ingestion across the group, alongside People &amp; HR analytics supporting strategic workforce decisions.</p>
+<p class="tl-desc">Sole responsibility for data and reporting accuracy across the warehouse — bronze through gold — alongside People &amp; HR analytics supporting strategic workforce decisions. Currently leading the migration of the group's new property management system into the warehouse model.</p>
 </div>
 
 <div class="timeline-item">
@@ -994,8 +1008,6 @@ transition-duration: 0.01ms !important;
 
 </div><!-- /.container -->
 
-<!-- FIX: the footer now sits outside the projects section. In the original the
-     <section> opened for projects never closed until after the footer. -->
 <footer>
 <div class="container">
 <div class="footer-links">
